@@ -6,14 +6,15 @@ class WallService {
 
     fun add(post: Post): Post {
         posts += post
-        id += 1
+        id ++
         post.id = id
         return posts.last()
     }
 
     fun update(post: Post): Boolean {
-        for ((index, Post) in posts.withIndex()) {
-            if (post.id == id) {
+        for (p in posts) {
+            if (post.id == p.id) {
+                val index = posts.indexOf(p)
                 posts[index] = post.copy(
                     fromID = post.fromID,
                     createdBy = post.createdBy,
@@ -37,10 +38,10 @@ class WallService {
                     donut = post.donut,
                     postponedID = post.postponedID
                 )
-            } else {
-                return false
+                return true
             }
+            continue
         }
-        return true
+        return false
     }
 }

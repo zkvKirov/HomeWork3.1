@@ -149,10 +149,10 @@ class WallServiceTest {
         val update = Post(
             id = 3,
             ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
+            fromID = 222,
+            createdBy = 322,
             date = 29032022,
-            text = "update",
+            text = "пост заменён",
             replyOwnerID = 4,
             replyPostID = 5,
             friendsOnly = true,
