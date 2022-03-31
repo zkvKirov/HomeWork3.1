@@ -13,10 +13,13 @@ data class Post(
     val comments: Comments?,
     val copyright: Copyright?,
     val likes: Likes?,
-    val reports: Reports?,
+    val reposts: Reposts?,
     val views: Views?,
     val postType: String, // Тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest
+    val postSource: PostSource?,
+    val geo: Geo?,
     val singerID: Int,
+    val copyHistory: Array<String>?,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
@@ -29,13 +32,13 @@ data class Post(
 
 }
 
-class Comments (
+class Comments(
     val count: Int,
     val canPost: Boolean,
     val groupsCanPost: Boolean,
     val canClose: Boolean,
     val canOpen: Boolean
-        )
+)
 
 class Copyright (
     val id: Int,
@@ -51,7 +54,7 @@ class Likes (
     val canPublish: Boolean,
 )
 
-class Reports (
+class Reposts (
     val count: Int,
     val userReposted: Boolean
 )
