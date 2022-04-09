@@ -1,14 +1,25 @@
 package ru.netology
 
+import org.junit.After
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Before
 
 class WallServiceTest {
 
+    @Before
+    fun prepare() {
+
+    }
+
+    @After
+    fun clearPosts () {
+        WallService.removeAll()
+    }
+
     @Test
     fun add() {
-        val service = WallService()
         val post = Post(
             id = 0,
             ownerID = 1,
@@ -67,14 +78,13 @@ class WallServiceTest {
             donut = null,
             postponedID = 12
         )
-        val actualID = service.add(post)
+        val actualID = WallService.add(post)
         assertEquals(expectedID, actualID)
     }
 
     @Test
     fun update_if() {
-        val service = WallService()
-        service.add(Post(
+        WallService.add(Post(
             id = 0,
             ownerID = 1,
             fromID = 2,
@@ -103,7 +113,7 @@ class WallServiceTest {
             donut = null,
             postponedID = 12
         ))
-        service.add(Post(
+        WallService.add(Post(
             id = 0,
             ownerID = 1,
             fromID = 2,
@@ -132,7 +142,7 @@ class WallServiceTest {
             donut = null,
             postponedID = 12
         ))
-        service.add(Post(
+        WallService.add(Post(
             id = 0,
             ownerID = 1,
             fromID = 2,
@@ -161,7 +171,7 @@ class WallServiceTest {
             donut = null,
             postponedID = 12
         ))
-        val update = Post(
+        val updatedPost = Post(
             id = 3,
             ownerID = 1,
             fromID = 222,
@@ -191,14 +201,13 @@ class WallServiceTest {
             postponedID = 12
         )
 
-        val result = service.update(update)
+        val result = WallService.update(updatedPost)
         assertTrue(result)
     }
 
     @Test
     fun update_else() {
-        val service = WallService()
-        service.add(Post(
+        WallService.add(Post(
             id = 0,
             ownerID = 1,
             fromID = 2,
@@ -227,7 +236,7 @@ class WallServiceTest {
             donut = null,
             postponedID = 12
         ))
-        service.add(Post(
+        WallService.add(Post(
             id = 0,
             ownerID = 1,
             fromID = 2,
@@ -256,7 +265,7 @@ class WallServiceTest {
             donut = null,
             postponedID = 12
         ))
-        service.add(Post(
+        WallService.add(Post(
             id = 0,
             ownerID = 1,
             fromID = 2,
@@ -285,7 +294,7 @@ class WallServiceTest {
             donut = null,
             postponedID = 12
         ))
-        val update = Post(
+        val updatedPost = Post(
             id = 100,
             ownerID = 1,
             fromID = 2,
@@ -315,7 +324,7 @@ class WallServiceTest {
             postponedID = 12
         )
 
-        val result = service.update(update)
+        val result = WallService.update(updatedPost)
         assertFalse(result)
     }
 }
