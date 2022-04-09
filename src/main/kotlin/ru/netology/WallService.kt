@@ -1,13 +1,13 @@
 package ru.netology
 
-class WallService {
+object WallService {
     private var posts = emptyArray<Post>()
-    private var id = 0
+    private var originalID = 0
 
     fun add(post: Post): Post {
-        posts += post
-        id ++
-        post.id = id
+        originalID ++
+        val newPost = post.copy(id = originalID)
+        posts += newPost
         return posts.last()
     }
 
@@ -15,7 +15,7 @@ class WallService {
         for (p in posts) {
             if (post.id == p.id) {
                 val index = posts.indexOf(p)
-                posts[index] = post.copy(
+                posts[index] = p.copy(
                     fromID = post.fromID,
                     createdBy = post.createdBy,
                     text = post.text,
@@ -40,8 +40,12 @@ class WallService {
                 )
                 return true
             }
-            continue
         }
         return false
+    }
+
+    fun removeAll () {
+        posts = emptyArray()
+        originalID = 0
     }
 }
