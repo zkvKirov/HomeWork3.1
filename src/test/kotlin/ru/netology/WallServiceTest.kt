@@ -39,124 +39,28 @@ class WallServiceTest {
     @Test
     fun update_if() {
         WallService.add(Post(
-            id = 0,
-            ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
-            date = 29032022,
-            text = "Очень нудное ДЗ",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            0,1,2, 3, 29032022, "Очень нудное ДЗ", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         ))
         WallService.add(Post(
-            id = 0,
-            ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
-            date = 29032022,
-            text = "Действительно очень нудное ДЗ",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            0,1,2, 3, 29032022, "Действительно очень нудное ДЗ", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         ))
         WallService.add(Post(
-            id = 0,
-            ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
-            date = 29032022,
-            text = "Да уж...",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            0,1,2, 3, 29032022, "Да уж...", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         ))
         val updatedPost = Post(
-            id = 3,
-            ownerID = 1,
-            fromID = 222,
-            createdBy = 322,
-            date = 29032022,
-            text = "пост заменён",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            3,111,222, 333, 29032022, "пост заменён", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         )
 
         val result = WallService.update(updatedPost)
@@ -166,127 +70,58 @@ class WallServiceTest {
     @Test
     fun update_else() {
         WallService.add(Post(
-            id = 0,
-            ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
-            date = 29032022,
-            text = "Очень нудное ДЗ",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            0,1,2, 3, 29032022, "Очень нудное ДЗ", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         ))
         WallService.add(Post(
-            id = 0,
-            ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
-            date = 29032022,
-            text = "Действительно очень нудное ДЗ",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            0,1,2, 3, 29032022, "Действительно очень нудное ДЗ", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         ))
         WallService.add(Post(
-            id = 0,
-            ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
-            date = 29032022,
-            text = "Да уж...",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            0,1,2, 3, 29032022, "Да уж...", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         ))
         val updatedPost = Post(
-            id = 100,
-            ownerID = 1,
-            fromID = 2,
-            createdBy = 3,
-            date = 29032022,
-            text = "update",
-            replyOwnerID = 4,
-            replyPostID = 5,
-            friendsOnly = true,
-            comments = null,
-            copyright = null,
-            likes = null,
-            reposts = null,
-            views = null,
-            postType = "post",
-            postSource = null,
-            geo = null,
-            attachments = null,
-            singerID = 10,
-            copyHistory = null,
-            canPin = true,
-            canDelete = false,
-            canEdit = true,
-            isPinned = true,
-            markedAsAds = false,
-            isFavorite = true,
-            donut = null,
-            postponedID = 12
+            100,1,2, 3, 29032022, "update", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
         )
 
         val result = WallService.update(updatedPost)
         assertFalse(result)
+    }
+
+    @Test
+    fun createComment() {
+        WallService.add(Post(
+            0,1,2, 3, 29032022, "Очень нудное ДЗ", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
+        ))
+        val comment = Comment (123, 1, 0, "такой пост есть, комментарий напечатается",
+            66, null, 77, 88)
+        val result = WallService.createComment(comment)
+        assertEquals(comment, result)
+    }
+
+    @Test (expected = PostNotFoundException::class)
+    fun noCreateComment() {
+        WallService.add(Post(
+            0,1,2, 3, 29032022, "Очень нудное ДЗ", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
+        ))
+        val comment = Comment (123, 0, 0, "комментарий просто так, такого поста нет",
+            66, null, 77, 88)
+        WallService.createComment(comment)
     }
 }

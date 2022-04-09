@@ -54,7 +54,7 @@ object WallService {
         originalID = 0
     }
 
-    fun createComment(comment: Comment) {
+    fun createComment(comment: Comment): Comment {
         for (post in posts) {
             if (comment.postID == post.id) {
                 comments += comment
@@ -63,5 +63,6 @@ object WallService {
                 throw PostNotFoundException ("Пост с id = ${comment.postID} не существует")
             }
         }
+        return comments.last()
     }
 }
