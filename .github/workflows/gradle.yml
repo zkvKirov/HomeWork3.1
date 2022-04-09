@@ -2,9 +2,9 @@ name: Kotlin CI with Gradle
 
 on:
   push:
-    branches: [ target, HomeWork2.3 ]
+    branches: [ target3, main ]
   pull_request:
-    branches: [ target, HomeWork2.3 ]
+    branches: [ target3, main ]
 
 jobs:
   build:
