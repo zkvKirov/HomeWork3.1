@@ -1,5 +1,5 @@
 package ru.netology
 
-abstract class Attachment {
+sealed class Attachment {
     abstract val type: String
 }
