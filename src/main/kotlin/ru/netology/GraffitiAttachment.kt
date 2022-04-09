@@ -1,6 +1,6 @@
 package ru.netology
 
-class GraffitiAttachment (
+data class GraffitiAttachment (
     override val type: String = "graffiti",
     val graffiti: Graffiti = Graffiti(777, 999, "url", 720, 540)
     ) : Attachment () {

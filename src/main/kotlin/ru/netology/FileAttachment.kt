@@ -1,6 +1,6 @@
 package ru.netology
 
-class FileAttachment (
+data class FileAttachment (
     override val type: String = "file",
     val file: File = File (111, "Документ", 222, 540, "ext", "url", 6042022, 0)
     ) : Attachment () {

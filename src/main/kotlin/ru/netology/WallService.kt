@@ -2,6 +2,7 @@ package ru.netology
 
 object WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     private var originalID = 0
 
     fun add(post: Post): Post {
@@ -51,5 +52,16 @@ object WallService {
     fun removeAll () {
         posts = emptyArray()
         originalID = 0
+    }
+
+    fun createComment(comment: Comment) {
+        for (post in posts) {
+            if (comment.postID == post.id) {
+                comments += comment
+                println("Комментарий добавлен")
+            } else {
+                throw PostNotFoundException ("Пост с id = ${comment.postID} не существует")
+            }
+        }
     }
 }
