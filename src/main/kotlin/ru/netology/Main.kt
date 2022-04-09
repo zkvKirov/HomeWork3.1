@@ -19,6 +19,7 @@ fun main() {
         postType = "post",
         postSource = null,
         geo = null,
+        attachments = null,
         singerID = 10,
         copyHistory = null,
         canPin = true,

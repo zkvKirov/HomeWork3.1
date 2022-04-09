@@ -18,6 +18,7 @@ data class Post(
     val postType: String, // Тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest
     val postSource: PostSource?,
     val geo: Geo?,
+    val attachments: Array<Attachment>?,
     val singerID: Int,
     val copyHistory: Array<String>?,
     val canPin: Boolean,
@@ -29,46 +30,45 @@ data class Post(
     val donut: Donut?,
     val postponedID: Int
         ) {
-
 }
 
-class Comments(
-    val count: Int,
-    val canPost: Boolean,
-    val groupsCanPost: Boolean,
-    val canClose: Boolean,
-    val canOpen: Boolean
-)
+object Comments {
+    val count: Int = 0
+    val canPost: Boolean = true
+    val groupsCanPost: Boolean = true
+    val canClose: Boolean = true
+    val canOpen: Boolean = true
+}
 
-class Copyright (
-    val id: Int,
-    val link: String,
-    val name: String,
-    val type: String
-)
+object Copyright {
+    val id: Int = 0
+    val link: String = ""
+    val name: String = ""
+    val type: String = ""
+}
 
-class Likes (
-    val count: Int,
-    val userLikes: Boolean,
-    val canLikes: Boolean,
-    val canPublish: Boolean,
-)
+object Likes {
+    val count: Int = 0
+    val userLikes: Boolean = true
+    val canLikes: Boolean = true
+    val canPublish: Boolean = true
+}
 
-class Reposts (
-    val count: Int,
-    val userReposted: Boolean
-)
+object Reposts {
+    val count: Int = 0
+    val userReposted: Boolean = true
+}
 
-class Views (
-    val count: Int
-        )
+object Views {
+    val count: Int = 0
+        }
 
-class Donut (
-    val isDonut: Boolean = true,
-    val paidDuration: Int,
-    val placeholder: Placeholder,
-    val canPublishFreeCopy: Boolean,
-    val editMode: String
-)
+object Donut {
+    val isDonut: Boolean = true
+    val paidDuration: Int = 0
+    val placeholder: Placeholder? = null
+    val canPublishFreeCopy: Boolean  = true
+    val editMode: String = ""
+}
 
 class Placeholder

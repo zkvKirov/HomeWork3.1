@@ -30,6 +30,7 @@ object WallService {
                     postType = post.postType,
                     postSource = post.postSource,
                     geo = post.geo,
+                    attachments = post.attachments,
                     singerID = post.singerID,
                     copyHistory = post.copyHistory,
                     canPin = post.canPin,
