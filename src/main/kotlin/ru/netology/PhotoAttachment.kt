@@ -2,12 +2,10 @@ package ru.netology
 
 data class PhotoAttachment (
     override val type: String = "photo",
-    val photo: Photo = Photo(222, 333, "Nature", 444,
-        "какой-то текст", 6042022, null, 400, 300)
-    ) : Attachment () {
-}
+    val photo: Photo
+) : Attachment ()
 
-class Photo (
+data class Photo (
     val id: Int,
     val ownerID: Int,
     val albumID: String,
@@ -17,8 +15,7 @@ class Photo (
     val size: Array<Size>?,
     val width: Int,
     val height: Int
-    ) {
-}
+)
 
 object Size {
     val type: String = "Тип"

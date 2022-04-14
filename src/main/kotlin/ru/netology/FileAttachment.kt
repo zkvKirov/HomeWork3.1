@@ -2,11 +2,10 @@ package ru.netology
 
 data class FileAttachment (
     override val type: String = "file",
-    val file: File = File (111, "Документ", 222, 540, "ext", "url", 6042022, 0)
-    ) : Attachment () {
-}
+    val file: File
+) : Attachment ()
 
-class File (
+data class File (
     val id: Int,
     val title: String,
     val ownerID: Int,
@@ -15,5 +14,4 @@ class File (
     val url: String,
     val date: Int,
     val type: Int
-    ) {
-}
+)
