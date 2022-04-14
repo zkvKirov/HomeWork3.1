@@ -3,7 +3,9 @@ package ru.netology
 object WallService {
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
+    private var badComments = emptyArray<Comment>()
     private var originalID = 0
+    private var originalCommentID = 0
 
     fun add(post: Post): Post {
         originalID ++
@@ -14,7 +16,7 @@ object WallService {
 
     fun update(post: Post): Boolean {
         for (p in posts) {
-            if (post.id == p.id) {
+            if (p.id == post.id) {
                 val index = posts.indexOf(p)
                 posts[index] = p.copy(
                     fromID = post.fromID,
@@ -51,18 +53,42 @@ object WallService {
 
     fun removeAll () {
         posts = emptyArray()
+        comments = emptyArray()
         originalID = 0
+        originalCommentID = 0
     }
 
     fun createComment(comment: Comment): Comment {
         for (post in posts) {
-            if (comment.postID == post.id) {
-                comments += comment
+            if (post.id == comment.postID) {
+                originalCommentID++
+                val newComment = comment.copy(id = originalCommentID)
+                comments += newComment
                 println("Комментарий добавлен")
-            } else {
-                throw PostNotFoundException ("Пост с id = ${comment.postID} не существует")
+                return comments.last()
             }
         }
-        return comments.last()
+        throw PostNotFoundException ("Пост с id = ${comment.postID} не существует")
+    }
+
+    fun reportComment(ownerID: Int, id: Int, reason: Int): Boolean {
+        for (comment in comments) {
+            if (comment.id == id) {
+                val results: String = when (reason) {
+                    0 -> "спам"
+                    1 -> "детская порнография"
+                    2 -> "экстремизм"
+                    3 -> "насилие"
+                    4 -> "пропаганда наркотиков"
+                    5 -> "материал для взрослых"
+                    6 -> "оскорбление"
+                    8 -> "призывы к суициду"
+                    else -> {throw ReasonNotFoundException("Причина введена не верно")}
+                }
+                badComments += comment
+                return true
+            }
+        }
+        throw CommentNotFoundException ("Комментария с id = $id не существует")
     }
 }

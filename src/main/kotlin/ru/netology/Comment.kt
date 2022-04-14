@@ -1,6 +1,7 @@
 package ru.netology
 
 data class Comment (
+    val id: Int,
     val ownerID: Int,
     val postID: Int,
     val fromGroup: Int = 0,
@@ -9,5 +10,4 @@ data class Comment (
     val attachments: List<String>?,
     val stickerID: Int,
     val guid: Int
-        ) {
-}
+        )

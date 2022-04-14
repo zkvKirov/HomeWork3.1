@@ -9,9 +9,9 @@ fun main() {
 
     println(WallService.add(post1))
 
-    val comment1 = Comment (123, 0, 0, "комментарий просто так, такого поста нет",
+    val comment1 = Comment (0,123, 0, 0, "комментарий просто так, такого поста нет",
         66, null, 77, 88)
-    val comment2 = Comment (123, 1, 0, "такой пост есть, комментарий напечатается",
+    val comment2 = Comment (0,123, 1, 0, "такой пост есть, комментарий напечатается",
         66, null, 77, 88)
 
     try {

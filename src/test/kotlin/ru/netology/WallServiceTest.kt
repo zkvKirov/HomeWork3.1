@@ -106,22 +106,86 @@ class WallServiceTest {
             null, null, null, 10, null,true, false,
             true, true, false, true, null, 12
         ))
-        val comment = Comment (123, 1, 0, "такой пост есть, комментарий напечатается",
+        WallService.add(Post(
+            0,1,2, 3, 29032022, "Действительно очень нудное ДЗ", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
+        ))
+        val comment = Comment (1,123, 2, 0, "такой пост есть, комментарий напечатается",
             66, null, 77, 88)
         val result = WallService.createComment(comment)
         assertEquals(comment, result)
     }
 
     @Test (expected = PostNotFoundException::class)
-    fun noCreateComment() {
+    fun createCommentPostNotFound() {
         WallService.add(Post(
             0,1,2, 3, 29032022, "Очень нудное ДЗ", 4,
             5, true, null, null, null, null, null, "post",
             null, null, null, 10, null,true, false,
             true, true, false, true, null, 12
         ))
-        val comment = Comment (123, 0, 0, "комментарий просто так, такого поста нет",
+        val comment = Comment (0,123, 0, 0, "комментарий просто так, такого поста нет",
             66, null, 77, 88)
         WallService.createComment(comment)
+    }
+
+    @Test
+    fun reportComment() {
+        WallService.add(Post(
+            0,1,2, 3, 29032022, "Задача № 3", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
+        ))
+        WallService.createComment(Comment (0,123, 1, 0,
+            "Обычный комментарий",
+            66, null, 77, 88
+        ))
+        WallService.createComment(Comment (0,123, 1, 0,
+            "Плохой комментарий",
+            66, null, 77, 88
+        ))
+        val result = WallService.reportComment(123, 2, 6)
+        assertTrue(result)
+    }
+
+    @Test (expected = CommentNotFoundException::class)
+    fun reportCommentCommentNotFound() {
+        WallService.add(Post(
+            0,1,2, 3, 29032022, "Задача № 3", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
+        ))
+        WallService.createComment(Comment (0,123, 1, 0,
+            "Обычный комментарий",
+            66, null, 77, 88
+        ))
+        WallService.createComment(Comment (0,123, 1, 0,
+            "Плохой комментарий",
+            66, null, 77, 88
+        ))
+        WallService.reportComment(123, 10, 6)
+    }
+
+    @Test (expected = ReasonNotFoundException::class)
+    fun reportCommentReasonNotFound() {
+        WallService.add(Post(
+            0,1,2, 3, 29032022, "Задача № 3", 4,
+            5, true, null, null, null, null, null, "post",
+            null, null, null, 10, null,true, false,
+            true, true, false, true, null, 12
+        ))
+        WallService.createComment(Comment (0,123, 1, 0,
+            "Обычный комментарий",
+            66, null, 77, 88
+        ))
+        WallService.createComment(Comment (0,123, 1, 0,
+            "Плохой комментарий",
+            66, null, 77, 88
+        ))
+        WallService.reportComment(123, 2, 7)
     }
 }
